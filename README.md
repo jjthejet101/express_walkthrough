@@ -180,3 +180,14 @@ views/index.hbs file:
 In the index.js file, we have an array of cats that contains three separate objects. Within the index.hbs file, we are now looping through the cats field in the res.render() object. But now instead of using the this keyword to list out each field, we are defining the key within the array's objects that we want to list out. Currently, there is only one key/value pair within each of these objects, but there could be multiple and we could define which key/value pair to list by defining the key within the <li> element itself, as we have done above.
 
 Great work! You have explored this basic starter app we got from Express and learned how to loop using Handlebars. Remember, Handlebars is the templating system we will be using throughout this course which will use the server to dynamically provide specific information onto our webpage.
+
+9. Key Terms
+
+Below is a list and short description of the important keywords you have learned in this lesson. Please read through and go back and review any concepts you don't fully understand. Great Work!
+
+Keyword	Description
+Node	An environment that runs JavaScript code server-side.
+Express	Express is currently the most popular framework built on top of Node that helps organize server-side code into an MVC architecture.
+Postman	Postman is a tool used to test the functionality of the backend. It allows the developer to send requests to the server and see the response in multiple formats.
+Server	Listens to requests from the outside world and responds back as instructed by the programmer.
+Handlebars	Handlebars is a templating system that uses the server to dynamically provide specific information onto our webpage.
