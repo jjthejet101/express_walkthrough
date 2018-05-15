@@ -56,3 +56,38 @@ Now, to start your server with Nodemon, run the following:
 nodemon
 
 And there you have it! You have a server up and running and any time you make a change to this project, Nodemon will restart the server and all you will need to do is refresh your webpage.
+
+4. Exploring the Starter App
+Now that you are all set up for this course, let's explore the starter project. Follow the below steps.
+
+Change Title
+Within your starter app, open up the two folders routes and views. You should see the below:
+
+Routes/Views filesFigure 1-5: Routes/Views Files
+
+To begin, open up the routes/index.js and views/index.hbs files
+
+Because we are using handlebars, our files that contain the views of the application will have the .hbs file extension instead of the .html extension you are used to. These .hbs files will look very similar to HTML files, but you will see slight differences.
+Let's first look at the index.hbs file. There are only two lines of code within this file, shown below:
+
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+As you can see, we are using {{title}} within both HTML tags in this file. This is Handlebars controlling the view based on what we have defined title to be. This definition happens within the routes/index.js file.
+Open up the routes/index.js file. You should see the below code:
+
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+module.exports = router;
+The first line requires the use of Express that is already installed within this starter project and sets it to a variable, rightly named express.
+The second line is a variable called router set to express.Router() which utilizes the Express routing method.
+The next three lines are using the router method of GET.
+This is an HTTP method receives data from a specified source. We will explore more HTTP methods later in this course.
+We will be exploring the different parts of this method throughout this course.
+Within the router.get() method is a res.render() method. This is where we tell the server to render a certain file. In this case, it is rendering the views/index.hbs file. This is also where we define the title that we saw within the views/index.hbs file earlier. Handlebars uses the server to dynamically change what is shown on the HTML page.
+Try changing the title from Express to anything else. Once that is done, refresh the page and you should now see the change.
