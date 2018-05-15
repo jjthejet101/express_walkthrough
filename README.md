@@ -149,4 +149,34 @@ Above, we are again using the title key/value pair which will render the word Us
 Try It!
 Add the above code to your index.js and index.hbs files. Once you have done that, refresh localhost:3000 and you will now see the list of each of the users. Good work!
 
-8. 
+8. Loop Through an Array of Objects
+
+Now, what if you wanted to loop through an array of objects? This is essentially the same as what we did above. Consider the below index.js and index.hbs files:
+
+routes/index.js file
+
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', {
+    title: 'My Cats',
+    cats: [{ name: 'Winston' }, { name: 'Churchill' }, { name: 'Walnut' }]
+  });
+});
+
+module.exports = router;
+views/index.hbs file:
+
+<h1>{{title}}</h1>
+<p>Welcome to a list of {{title}}</p>
+
+<ul>
+    {{#each cats}}
+    <li>{{name}}</li>
+    {{/each}}
+</ul>
+In the index.js file, we have an array of cats that contains three separate objects. Within the index.hbs file, we are now looping through the cats field in the res.render() object. But now instead of using the this keyword to list out each field, we are defining the key within the array's objects that we want to list out. Currently, there is only one key/value pair within each of these objects, but there could be multiple and we could define which key/value pair to list by defining the key within the <li> element itself, as we have done above.
+
+Great work! You have explored this basic starter app we got from Express and learned how to loop using Handlebars. Remember, Handlebars is the templating system we will be using throughout this course which will use the server to dynamically provide specific information onto our webpage.
