@@ -397,3 +397,19 @@ While this is a short list out of the many errors available, these are common an
 
 Additional Info!
 Remember, these are only a few of the response codes available. If you would like to look into other response codes, please visit https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+19. Response Data Formats
+
+It is important to understand that the server can respond back to the client with different types of data. It can respond back with HTML, JSON and XML data formats. Let's look at an example of using APIs to show JSON, HTML and XML formats.
+
+20. Viewing JSON
+
+Paste the below API link into the URL area in Postman:
+
+https://jsonplaceholder.typicode.com/photos
+Make sure your Postman looks like below:
+
+JSON postmanFigure 2-6: Postman JSON
+
+Notice how the output is an array of JSON objects. Because Postman knows that this particular API is sending back JSON, the data type is automatically chosen to be JSON.
+
