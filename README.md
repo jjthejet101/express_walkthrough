@@ -413,3 +413,36 @@ JSON postmanFigure 2-6: Postman JSON
 
 Notice how the output is an array of JSON objects. Because Postman knows that this particular API is sending back JSON, the data type is automatically chosen to be JSON.
 
+21. Viewing HTML
+Now, let's view HTML of a common website. Paste the below into the URL area in Postman:
+
+www.facebook.com
+You should now see the HTML version of the main page of Facebook, as shown below:
+
+HTML postmanFigure 2-7: Postman HTML
+
+Notice how you can see the HTML of Facebook's main page. Because this is sending HTML, you can click on the Preview tab and see a preview of the HTML that was sent back, like below:
+
+Facebook PostmanFigure 2-8: Postman Facebook Preview
+
+22. Viewing XML
+You are also able to view content that is in the XML format. XML is defined as "a markup language similar to HTML. It stands for Extensible Markup Language and is a W3C recommended specification as a general purpose markup language. This means, unlike other markup languages, XML is not predefined so you must define your own tags. The primary purpose of the language is the sharing of data across different systems, such as the Internet." (https://developer.mozilla.org/en-US/docs/XML_introduction)
+
+Add the below link to the URL field in Postman:
+
+https://www.w3schools.com/xml/note.xml
+You should now see below. Make sure to click on the Pretty tab:
+
+XML PostmanFigure 2-9: Postman XML
+
+And there you have it! Depending on what is being sent to Postman, you can change the data format to reflect that.
+
+Tip!
+Remember that Postman takes the place of the Front End of an application. So, this data will be generated onto the webpage by your Front End.
+
+23. Content-Type Header
+When sending back data, it is helpful to be able to define what type of data is being sent. Within your POST or PUT methods, you can define this like below:
+
+response.set('Content-Type', 'text/xml');
+This is used by some servers to determine what kind of data to respond with.
+
