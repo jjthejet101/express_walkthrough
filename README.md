@@ -191,3 +191,61 @@ Express	Express is currently the most popular framework built on top of Node tha
 Postman	Postman is a tool used to test the functionality of the backend. It allows the developer to send requests to the server and see the response in multiple formats.
 Server	Listens to requests from the outside world and responds back as instructed by the programmer.
 Handlebars	Handlebars is a templating system that uses the server to dynamically provide specific information onto our webpage.
+
+10. HTTP Request and Response - HTTP Verbs
+
+HTTP Verbs
+HTTP request verbs are used to indicate the desired action to be performed within our request. There are four commonly used HTTP requests, GET, POST, PUT, and DELETE. These four request methods are often referred to as CRUD operations, which stands for Create, Read, Update, and Delete. CRUD operations are the basics for persisting data on the database.
+
+In lesson one, we worked a little bit with the below function:
+
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+In the above code, we are using the HTTP verb GET with the router.get() function. When we use this, we are getting data specified from the server. Below are the different, commonly used HTTP vers, what they do and how they are related to the CRUD operation.
+
+POST is used to send data to the specified resource on the server. As a result, the state of the server is changed. POST is represented by the C, or Create, in CRUD.
+GET is used to read a specified resource. This operation does not change the data as a result since you are just retrieving data.
+PUT is used to update a specified resource with the data being sent and will change the data as it is being updated.
+DELETE is used to delete the specified resource. This changes the data as well because you are deleting specific data out of the database.
+
+11. HTTP Verbs with Postman
+
+Now that you have an understanding of the common HTTP verbs, let's see them working in Postman. Return to your project you created in Lesson 1 named express_starter_app. We will be working in this project. Add the following code so your routes/index.js file looks like below:
+
+var express = require('express');
+var router = express.Router();
+
+router.post('/', function(req, res) {
+  res.send('You successfully created a POST route!');
+});
+
+router.get('/', function(req, res) {
+  res.send('You successfully created a GET route!');
+});
+
+router.put('/', function(req, res) {
+  res.send('You successfully created a PUT route!');
+});
+
+router.delete('/', function(req, res) {
+  res.send('You successfully created a DELETE route!');
+});
+
+module.exports = router;
+Above, we are using HTTP verbs and when we call these within Postman, the function called will return a string. Start up nodemon and return to Postman.
+
+Postman is used for testing the functionality of the backend by sending requests to the server. Open Postman and locate the "Enter request URL" input field to the left of the blue "Send" button. The base URL for the server being used on our local computer is localhost. The port number for the server is 3000, which can be found in the application or the console when the server is started. Since the server is being mapped to the path /, the full URL to be tested is simply localhost:3000. Enter this URL into the input field. The "GET" operation is already selected to the left of the input field, so there is no need to change this at the moment. Then, click the blue "Send" button to send the request to the server. Once you have clicked this button, you should see the below:
+
+Postman Simple Server GetFigure 2-1: Postamn Get
+
+Next, try each of the other HTTP methods. Choose either POST, PUT or DELETE from the dropdown, shown below:
+
+Postman HTTP Method OperationsFigure 2-2: Postman HTTP Method Operations
+
+Each time you try one of these four methods (GET, POST, PUT or DELETE), you should see the cooresponding string we provided within the res.send() method.
+
+Tip!
+Keep in mind that Postman takes the place of a client. A client would be the front end application requesting data from the database, and Postman is simulating that for us.
+
+12. 
