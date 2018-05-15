@@ -446,3 +446,21 @@ When sending back data, it is helpful to be able to define what type of data is 
 response.set('Content-Type', 'text/xml');
 This is used by some servers to determine what kind of data to respond with.
 
+24. Key Terms
+
+Below is a list and short description of the important keywords you have learned in this lesson. Please read through and go back and review any concepts you don't fully understand. Great Work!
+
+Keyword	Description
+HTTP (Hypertext Transfer Protocol)	An application layer protocol for communication between systems using hypermedia documents such as HTML
+Stateless Protocol	Protocol in which information about a session between a client and server is not stored on the server.
+CRUD	An acronym for _Create_, _Read_, _Update_, and _Delete_. It describes the basic functionality for storing and persisting data.
+HTTP Verbs	Used to indicate the desired action to be performed within our request. There are four commonly used HTTP requests, GET, POST, PUT, and DELETE.
+POST	Used to send data to the specified resource on the server. As a result, the state of the server is changed. POST is represented by the C, or Create, in CRUD.
+GET	Used to read a specified resource. This operation does not change the data as a result since you are just retrieving data.
+PUT	Used to update a specified resource with the data being sent and will change the data as it is being updated.
+GET	Used to delete the specified resource. This changes the data as well because you are deleting specific data out of the database.
+Request	The request object (often seen as req or request) begins as an instance of http.IncomingMessage, which is a core piece of Node. It is used when some piece of data is requested from the server.
+req.query	Defines the parameters within the URL which we can then use on the page.
+req.body	Contains key-value pairs of data submitted in the request body.
+Response	The response object (often seen as res, resp, or response) begins as an instance of http.serverResponse, also a core piece of Node. This is the response that is sent back to the client after a request.
+
