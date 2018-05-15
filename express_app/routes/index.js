@@ -13,4 +13,14 @@ router.get('/', function(req, res, next) {
   }
 });
 
+router.post('/', function(req, res, next) {
+  let bodyAnimal = req.body;
+  if (animals.includes(bodyAnimal.animal)) {
+    res.send('Already have a ' + bodyAnimal.animal + ' thanks');
+  } else {
+    animals.push(bodyAnimal.animal);
+    res.send(animals);
+  }
+});
+
 module.exports = router;

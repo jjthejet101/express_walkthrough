@@ -319,3 +319,38 @@ You should now see the following:
 
 Nope, no giraffe here.
 Great work! You have no learned the basics of what req.query is used for. It provides you the ability to define certain parameters within the URL and then you can use that to produce a string on the page.
+
+16. Using req.body
+
+The req.body contains key-value pairs of data submitted in the request body. When using req.body, it will live within the router.post() method. Let's try it out within our starter project and Postman. Add the following code underneath the router.get() method within your routes/index.js file. This code will be using the already created array within your file:
+
+router.post('/', function(req, res, next) {
+  let bodyAnimal = req.body;
+  if (animals.includes(bodyAnimal.animal)) {
+    res.send('Already have a ' + bodyAnimal.animal + ' thanks');
+  } else {
+    animals.push(bodyAnimal.animal);
+    res.send(animals);
+  }
+});
+The code above is allowing for a client to input a new animal. If the animal inputted already exists within the array, it will return a string saying just that. If it doesn't already exist, the else statement will push the new animal into the array and then send back the array of animals.
+
+Let's watch this in action in Postman. Follow the below steps to make sure it will correctly return the either a string or the array of animals.
+
+Choose POST from the dropdown on the left.
+Click on the Body tab underneath the URL input.
+Click on the option raw
+Choose JSON (application/json) from the dropdown next to binary.
+Your Postman should now look like below:
+
+Postman req.bodyFigure 2-3: Postman req.body
+
+Great! Now, within the input box, type a JSON object with a key of animal and a value of whatever animal you would like. An example is located below of how to correctly write a JSON object:
+
+{
+  "animal": "penquin"
+}
+After you have written similar to the above JSON object, click send. You should now see that animal added to our array, shown below:
+
+Push new animalFigure 2-4: Push New Animal
+
