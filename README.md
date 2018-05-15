@@ -354,3 +354,27 @@ After you have written similar to the above JSON object, click send. You should 
 
 Push new animalFigure 2-4: Push New Animal
 
+17. Handling Forms
+
+Although this course is primarily for understanding Node and Express on the server, some partial knowledge of HTML forms is necessary.
+
+Let's say we have the below form in our HTML that the client can fill out:
+
+<form action="/" method="POST">
+    <div>
+        <label for="animal">Animal: </label>
+        <input type="text" name="animal">
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+The first thing to note in this form is the action attribute. This specifies the URL that will receive the form information whenever it is submitted. If the action attribute is omitted the form will default to sending the submission to the URL, it was loaded from. Currently, we have set the action to send to our root URL. Second, is the method attribute. Notice how it is set to POST? This is an important step; HTML forms default to GET, but to send information it needs to be POST.
+
+The third thing to note is the name attribute on the input. This is perhaps the most important thing from the perspective of the server because this is how the input field is identified.
+
+When a user on the frontend submits a form, it submitted to the server in the request body. After a form is submitted by the user, the server handles the data however we have set it up to.
+
+Let's try this out in Postman. First, click on x-www-form-urlencoded located next to raw. Here is where you will be able to fill out the form, close to how the user would do it. Within the form, the name attribute is the key of the key/value pair that will be created when the form is submitted. Within Postman, we can simulate that by filling in the key and value provided to us from x-www-form-urlencoded. If you fill out the key to be animal and the value to be an animal, when you click send, it will then push that animal into our array. We are simulating a user inputting an animal into a field on the front-end and then adding that to a database. Currently, we are not using a database, but an array instead to understand how this works. Fill out the key/value pair and when you click send you should see your animal in the array, as shown below:
+
+Postman FormFigure 2-5: Postman Form
