@@ -41,7 +41,9 @@ Stop your server because we are going to be running more commands in the next se
 Nodemon
 Nodemon is a very useful tool when working with a server. It is a utility that will continuously monitor your application and when changes are made, it will automatically restart your server. Currently, in your starter project you just set up, if you made any changes, you would have to stop and restart your server, which becomes really annoying when you are constantly making changes. Nodemon solves that problem!
 
-2. The first thing you need to do is install Nodemon globally by running the below command:
+2. npm install
+
+3. The first thing you need to do is install Nodemon globally by running the below command:
 
 npm install -g nodemon
 
