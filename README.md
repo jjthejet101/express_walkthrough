@@ -113,3 +113,40 @@ Add another key/value pair within the object. The key should be name and the val
 Once that is done, refresh localhost:3000. You should now see your name within the sentence we created above.
 Using Handlebars to Loop
 Now that you have a basic idea of how Handlebars works with the server, let's see how we can use Handlebars to loop through either an array or an object. The idea of what is happening is essentially the same as what you have learned previously using a for loop, but the syntax is different.
+
+7. Loop Through an Array
+
+Consider the below code:
+
+routes/index.js file:
+
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', {
+    title: 'Users',
+    users: ['Jessica', 'Ken', 'Anthony', 'Clara']
+  });
+});
+
+module.exports = router;
+Above, instead of having just one key/value pair within the object in the res.render() method, we have two key/value pairs, and the second is an array. Next, we are going to learn how to loop through this nested array inside of the index.hbs file. Consider the following code:
+
+views/index.hbs file:
+
+<h1>{{title}}</h1>
+<p>Welcome to the {{title}} list</p>
+
+<ul>
+    {{#each users}}
+    <li>{{this}}</li>
+    {{/each}}
+</ul>
+Above, we are again using the title key/value pair which will render the word Users. Then, we have an unordered list that includes an li element. Wrapped around the li element is our Handlebar each loop. We define that we are using Handlebars with the double curly braces {{}}, then use #each to define the loop and finally we define what we are looping through, which in this case is the users key/value pair within the object in res.render(). We can then tell Handlebars to list out each of the values within the array with the this keyword. In this case, we do not need to define users.this because we have already defined users within the loop.
+
+Try It!
+Add the above code to your index.js and index.hbs files. Once you have done that, refresh localhost:3000 and you will now see the list of each of the users. Good work!
+
+8. 

@@ -1,4 +1,8 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<p>Welcome to the {{title}} list</p>
 
-<div>Hi! My name is {{name}}</div>
+<ul>
+    {{#each users}}
+    <li>{{this}}</li>
+    {{/each}}
+</ul>
