@@ -6,7 +6,12 @@ router.post('/', function(req, res) {
 });
 
 router.get('/', function(req, res) {
-  res.send('You successfully created a GET route!');
+  let queryName = req.query.name;
+  if (queryName) {
+    res.send('Welcome to the page, ' + queryName);
+  } else {
+    res.send('Sad, no one is here!');
+  }
 });
 
 router.put('/', function(req, res) {

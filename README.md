@@ -192,7 +192,7 @@ Postman	Postman is a tool used to test the functionality of the backend. It allo
 Server	Listens to requests from the outside world and responds back as instructed by the programmer.
 Handlebars	Handlebars is a templating system that uses the server to dynamically provide specific information onto our webpage.
 
-10. HTTP Request and Response - HTTP Verbs
+10. HTTP REQUEST AND RESPONSE - HTTP Verbs
 
 HTTP Verbs
 HTTP request verbs are used to indicate the desired action to be performed within our request. There are four commonly used HTTP requests, GET, POST, PUT, and DELETE. These four request methods are often referred to as CRUD operations, which stands for Create, Read, Update, and Delete. CRUD operations are the basics for persisting data on the database.
@@ -248,4 +248,40 @@ Each time you try one of these four methods (GET, POST, PUT or DELETE), you shou
 Tip!
 Keep in mind that Postman takes the place of a client. A client would be the front end application requesting data from the database, and Postman is simulating that for us.
 
-12. 
+12. The Request and Response Objects
+
+Now, it is important to understand what request and response are. We saw this in lesson 1 within the render.get() method shown below:
+
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+The req param stands for request and the res stands for response. So above, we are defining what we are requesting, in this case the index.js file, and then the response will be the object that contains the title. Let's look a little more into what the request and response params provide to us.
+
+13. Request
+
+The request object (often seen as req or request) begins as an instance of http.IncomingMessage, which is a core piece of Node. Let's look at an example using the req.query functionality provided to use by the request object.
+
+req.query defines the parameters within the URL which we can then use on the page. Let's check out how this works.
+
+14. Defining Parameters in URL
+
+Let's look at an example where we define a name of a person within the URL and use req.query to use that name in our res.send. Consider below:
+
+router.get('/', function(req, res) {
+  let queryName = req.query.name;
+  if (queryName) {
+    res.send('Welcome to the page, ' + queryName);
+  } else {
+    res.send('Sad, no one is here!');
+  }
+});
+Within the router.get() function, we have a variable named queryName. Whatever name we define within the URL, we will set it to a variable named queryName. Then, if queryName is true (meaning if there was a name set within the URL), then send the string Welcome to the page, plus the name defined in the URL. Else (meaning if there was no named defined in the URL), then send the string Sad, no one is here!.
+
+Now, to test this out, we need to change the URL in our Postman. Change your URL to look like below:
+
+localhost:3000?name=Ted
+When we are defining the req.query.name, the syntax is to have a question mark ?, then set what name you want to use to name.
+
+Now, if you click Send, you should now see the response Welcome to the page, Ted. If you return to just localhost:3000, you should see the response Sad, no one is here!.
+
+15. 
