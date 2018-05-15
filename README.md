@@ -58,9 +58,10 @@ nodemon
 And there you have it! You have a server up and running and any time you make a change to this project, Nodemon will restart the server and all you will need to do is refresh your webpage.
 
 4. Exploring the Starter App
+
 Now that you are all set up for this course, let's explore the starter project. Follow the below steps.
 
-Change Title
+5. Change Title
 Within your starter app, open up the two folders routes and views. You should see the below:
 
 Routes/Views filesFigure 1-5: Routes/Views Files
@@ -91,3 +92,24 @@ This is an HTTP method receives data from a specified source. We will explore mo
 We will be exploring the different parts of this method throughout this course.
 Within the router.get() method is a res.render() method. This is where we tell the server to render a certain file. In this case, it is rendering the views/index.hbs file. This is also where we define the title that we saw within the views/index.hbs file earlier. Handlebars uses the server to dynamically change what is shown on the HTML page.
 Try changing the title from Express to anything else. Once that is done, refresh the page and you should now see the change.
+
+6. Change File Rendered
+
+Now let's change the res.render() method to render the error.hbs file. Currently, nothing will show up.
+
+Add the below line on the 4th line of the error.hbs file
+
+<p>error!</p>
+Next, change the res.render() method to render error instead of index.
+
+Once you have completed steps 5 and 6, refresh localhost:3000. You should now see error! on the page.
+
+Lastly, change the res.render() method back to render index instead of error and remove the line we added to the error.hbs file.
+
+Now that your code is back to its original form, what if you wanted to add another field within the res.render() method to then use in the index.hbs file? It's actually not too hard. All you need to do is add another key/value pair within the object that title: 'Express' is located within. Keep in mind that this is just an object that you have seen before, so the key/value pairs are separated by a comma.
+
+Add another key/value pair within the object. The key should be name and the value should be your name as a string. Now, go into the index.hbs file and add the below code:
+<div>Hi! My name is {{name}}</div>
+Once that is done, refresh localhost:3000. You should now see your name within the sentence we created above.
+Using Handlebars to Loop
+Now that you have a basic idea of how Handlebars works with the server, let's see how we can use Handlebars to loop through either an array or an object. The idea of what is happening is essentially the same as what you have learned previously using a for loop, but the syntax is different.
