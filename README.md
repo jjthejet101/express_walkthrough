@@ -378,3 +378,22 @@ When a user on the frontend submits a form, it submitted to the server in the re
 Let's try this out in Postman. First, click on x-www-form-urlencoded located next to raw. Here is where you will be able to fill out the form, close to how the user would do it. Within the form, the name attribute is the key of the key/value pair that will be created when the form is submitted. Within Postman, we can simulate that by filling in the key and value provided to us from x-www-form-urlencoded. If you fill out the key to be animal and the value to be an animal, when you click send, it will then push that animal into our array. We are simulating a user inputting an animal into a field on the front-end and then adding that to a database. Currently, we are not using a database, but an array instead to understand how this works. Fill out the key/value pair and when you click send you should see your animal in the array, as shown below:
 
 Postman FormFigure 2-5: Postman Form
+
+18. Response
+
+The response object (often seen as res, resp, or response) begins as an instance of http.serverResponse, also a core piece of Node. So far, we have been using res.send() to send a response back to the client. As we progress we will see other response methods available to use, but for now, let's stick to res.send().
+
+19. Response Codes
+
+So far, we have been sending back strings, but that is not the only thing we can send back to the client. Another common response is to send back error messages to the client. These are called Response Codes and each code means something different. Below are the common ones you will see:
+
+200: Success, means the request was successful
+400: Bad Request, means the HTTP request that was sent to the server has invalid syntax.
+401: Unathorized, means that the user trying to access the resource has not been authenticated or has not been authenticated correctly. This means that the user must provide credentials to be able to view the protected resource.
+403: Forbidden, means that the user made a valid request but the server is refusing to serve the request, due to a lack of permission to access the requested resource.
+404: Not Found, means that the user is able to communicate with the server but it is unable to locate the requested file or resource.
+500: Internal Server Error, means that server cannot process the request for an unknown reason.
+While this is a short list out of the many errors available, these are common and you may have already encountered them in the past. We can handle the sending of these errors within the res.send() when necessary.
+
+Additional Info!
+Remember, these are only a few of the response codes available. If you would like to look into other response codes, please visit https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
