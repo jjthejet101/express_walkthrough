@@ -284,4 +284,38 @@ When we are defining the req.query.name, the syntax is to have a question mark ?
 
 Now, if you click Send, you should now see the response Welcome to the page, Ted. If you return to just localhost:3000, you should see the response Sad, no one is here!.
 
-15. 
+15. Checking Against an Array
+
+Next, lets look at an example where we use req.query to check against an array.
+
+var express = require('express');
+var router = express.Router();
+
+let animals = ['pig', 'goat', 'dog', 'cat'];
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  let queryAnimal = req.query.animal;
+  if (animals.includes(queryAnimal)) {
+    res.send('Yep, we have a ' + queryAnimal);
+  } else {
+    res.send('Nope, no ' + queryAnimal + ' here. ');
+  }
+});
+
+module.exports = router;
+Above, we have an array named animals that contains 4 animals. Within the router.get(), we are doing what we have done before: setting req.query.animal to a variable (we define this within the URL). We then check to see if the array animals includes the variable queryAnimal. If it does, we return a string saying we already have that particular animal. If not, it returns a string saying just that.
+
+To test this out, go into Postman and change your URL to be the following, and make sure you are on the GET method within the dropdown on the left:
+
+localhost:3000/?animal=pig
+After clicking Send, you should see the following string:
+
+Yep, we have a pig
+Now, change your URL to look like below:
+
+localhost:3000/?animal=giraffe
+You should now see the following:
+
+Nope, no giraffe here.
+Great work! You have no learned the basics of what req.query is used for. It provides you the ability to define certain parameters within the URL and then you can use that to produce a string on the page.
